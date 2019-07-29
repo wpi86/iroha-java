@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/hyperledger/iroha-java.svg?branch=master)](https://travis-ci.com/hyperledger/iroha-java)
 [![](https://img.shields.io/jitpack/v/hyperledger/iroha-java.svg)](https://jitpack.io/#hyperledger/iroha-java)
 
 # iroha-java
