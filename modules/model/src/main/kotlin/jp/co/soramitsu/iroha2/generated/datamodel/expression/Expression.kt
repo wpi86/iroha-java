@@ -11,14 +11,13 @@ import jp.co.soramitsu.iroha2.ModelEnum
 import jp.co.soramitsu.iroha2.generated.datamodel.Value
 import jp.co.soramitsu.iroha2.generated.datamodel.query.QueryBox
 import jp.co.soramitsu.iroha2.wrapException
-import kotlin.Int
 
 /**
  * Expression
  *
  * Generated from 'iroha_data_model::expression::Expression' enum
  */
-public sealed class Expression : ModelEnum {
+public sealed class Expression<T> : ModelEnum {
     /**
      * @return Discriminator of variant in enum
      */
@@ -29,7 +28,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Add(
         public val add: jp.co.soramitsu.iroha2.generated.datamodel.expression.Add
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Add>, ScaleWriter<Add> {
@@ -56,7 +55,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Subtract(
         public val subtract: jp.co.soramitsu.iroha2.generated.datamodel.expression.Subtract
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Subtract>, ScaleWriter<Subtract> {
@@ -86,7 +85,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Multiply(
         public val multiply: jp.co.soramitsu.iroha2.generated.datamodel.expression.Multiply
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Multiply>, ScaleWriter<Multiply> {
@@ -116,7 +115,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Divide(
         public val divide: jp.co.soramitsu.iroha2.generated.datamodel.expression.Divide
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Divide>, ScaleWriter<Divide> {
@@ -143,7 +142,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Mod(
         public val mod: jp.co.soramitsu.iroha2.generated.datamodel.expression.Mod
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Mod>, ScaleWriter<Mod> {
@@ -170,7 +169,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class RaiseTo(
         public val raiseTo: jp.co.soramitsu.iroha2.generated.datamodel.expression.RaiseTo
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<RaiseTo>, ScaleWriter<RaiseTo> {
@@ -200,7 +199,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Greater(
         public val greater: jp.co.soramitsu.iroha2.generated.datamodel.expression.Greater
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Greater>, ScaleWriter<Greater> {
@@ -230,7 +229,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Less(
         public val less: jp.co.soramitsu.iroha2.generated.datamodel.expression.Less
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Less>, ScaleWriter<Less> {
@@ -257,7 +256,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Equal(
         public val equal: jp.co.soramitsu.iroha2.generated.datamodel.expression.Equal
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Equal>, ScaleWriter<Equal> {
@@ -284,7 +283,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Not(
         public val not: jp.co.soramitsu.iroha2.generated.datamodel.expression.Not
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Not>, ScaleWriter<Not> {
@@ -311,7 +310,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class And(
         public val and: jp.co.soramitsu.iroha2.generated.datamodel.expression.And
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<And>, ScaleWriter<And> {
@@ -338,7 +337,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Or(
         public val or: jp.co.soramitsu.iroha2.generated.datamodel.expression.Or
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Or>, ScaleWriter<Or> {
@@ -365,7 +364,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class If(
         public val `if`: jp.co.soramitsu.iroha2.generated.datamodel.expression.If
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<If>, ScaleWriter<If> {
@@ -392,7 +391,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Raw(
         public val `value`: Value
-    ) : Expression() {
+    ) : Expression<Long>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Raw>, ScaleWriter<Raw> {
@@ -419,7 +418,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Query(
         public val queryBox: QueryBox
-    ) : Expression() {
+    ) : Expression<QueryBox>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Query>, ScaleWriter<Query> {
@@ -446,7 +445,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Contains(
         public val contains: jp.co.soramitsu.iroha2.generated.datamodel.expression.Contains
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Contains>, ScaleWriter<Contains> {
@@ -476,7 +475,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class ContainsAll(
         public val containsAll: jp.co.soramitsu.iroha2.generated.datamodel.expression.ContainsAll
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<ContainsAll>, ScaleWriter<ContainsAll> {
@@ -506,7 +505,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class ContainsAny(
         public val containsAny: jp.co.soramitsu.iroha2.generated.datamodel.expression.ContainsAny
-    ) : Expression() {
+    ) : Expression<Boolean>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<ContainsAny>, ScaleWriter<ContainsAny> {
@@ -536,7 +535,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class Where(
         public val `where`: jp.co.soramitsu.iroha2.generated.datamodel.expression.Where
-    ) : Expression() {
+    ) : Expression<Value>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<Where>, ScaleWriter<Where> {
@@ -563,7 +562,7 @@ public sealed class Expression : ModelEnum {
      */
     public data class ContextValue(
         public val contextValue: jp.co.soramitsu.iroha2.generated.datamodel.expression.ContextValue
-    ) : Expression() {
+    ) : Expression<String>() {
         public override fun discriminant(): Int = DISCRIMINANT
 
         public companion object : ScaleReader<ContextValue>, ScaleWriter<ContextValue> {
@@ -588,8 +587,8 @@ public sealed class Expression : ModelEnum {
         }
     }
 
-    public companion object : ScaleReader<Expression>, ScaleWriter<Expression> {
-        public override fun read(reader: ScaleCodecReader): Expression = when (
+    public companion object : ScaleReader<Expression<*>>, ScaleWriter<Expression<*>> {
+        public override fun read(reader: ScaleCodecReader): Expression<out Any> = when (
             val discriminant =
                 reader.readUByte()
         ) {
@@ -616,7 +615,7 @@ public sealed class Expression : ModelEnum {
             else -> throw RuntimeException("Unresolved discriminant of the enum variant: $discriminant")
         }
 
-        public override fun write(writer: ScaleCodecWriter, instance: Expression) {
+        public override fun write(writer: ScaleCodecWriter, instance: Expression<*>) {
             writer.directWrite(instance.discriminant())
             when (val discriminant = instance.discriminant()) {
                 0 -> Add.write(writer, instance as Add)

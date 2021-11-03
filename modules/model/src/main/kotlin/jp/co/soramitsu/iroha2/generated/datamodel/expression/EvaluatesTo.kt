@@ -15,8 +15,8 @@ import kotlin.Any
  *
  * Generated from 'iroha_data_model::expression::EvaluatesTo<u32>' regular structure
  */
-public data class EvaluatesTo<T0>(
-    public val expression: Expression
+public data class EvaluatesTo<T>(
+    public val expression: Expression<T>
 ) {
     public companion object : ScaleReader<EvaluatesTo<out Any>>, ScaleWriter<EvaluatesTo<out Any>> {
         public override fun read(reader: ScaleCodecReader): EvaluatesTo<out Any> = try {
